@@ -1,0 +1,229 @@
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  margin: 0;
+  padding: 1.5rem;
+  
+  background-image: url('truck.jpg'); 
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #123;
+  min-height: 100vh;
+  box-sizing: border-box;
+}
+
+
+/* Split layout styles: make columns stretch to viewport height */
+.split-layout {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  align-items: stretch; /* full-height columns */
+  min-height: calc(100vh - 140px); /* leave room for navbar/header; tweak if needed */
+}
+
+.left-side {
+  flex: 0 0 45%;
+  /* remove inner padding so image can reach edges */
+  padding: 0;
+  background: #f5f7fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  overflow: hidden; /* crop overflowing image */
+  display: flex;
+}
+
+.right-side {
+  flex: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.farmer-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* cover the left column */
+  display: block;
+}
+
+/* Slider styles */
+.slider-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  height: 100%; /* ensure it fills the right column */
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  flex: 0 0 100%;
+  padding: 2rem;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: auto; /* allow slide content to scroll if it's taller than viewport */
+}
+
+.slider-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.slider-nav:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.slider-nav:disabled {
+  background: rgba(0, 0, 0, 0.3);
+  cursor: not-allowed;
+}
+
+.prev {
+  left: 1rem;
+}
+
+.next {
+  right: 1rem;
+}
+
+@media (max-width: 768px) {
+  .split-layout {
+    flex-direction: column;
+    min-height: auto;
+  }
+
+  .left-side, .right-side {
+    width: 100%;
+  }
+
+  .left-side {
+    margin-bottom: 2rem;
+    height: auto;
+  }
+
+  .farmer-img {
+    height: auto;
+    object-fit: cover;
+  }
+}
+.navbar {
+  padding: 1rem 0;
+  display: flex; 
+  justify-content: center;
+}
+
+.navbar-inner {
+   background-color: #d8e4e0; /* background wraps only the links */
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.navbar-right {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-right a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+  padding: 0.5rem 1rem;
+  border-radius: 999px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+/* Hover effect */
+.navbar-right a:hover {
+  background-color: white;
+  color: green;
+}
+
+/* Active link style */
+.active-link {
+  background-color: black;
+  color: #00ff00; /* bright green */
+  font-weight: bold;
+}
+
+
+
+
+/* Force visibility for login/logout links (high specificity) */
+#nav-login, #nav-logout {
+  color:#00ff00 ;
+  border: 2px solid red ;
+  background: rgba(255,255,255,0.06) ;
+  display: inline-flex ;
+  padding: 0.45rem 0.8rem ;
+  border-radius: 999px;
+}
+
+
+
+.navbar-right {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+
+@media (max-width: 640px) {
+  .navbar-left, .navbar-right { width: 100%; flex-wrap: wrap; justify-content: center; }
+}
+h1 {
+  color:#ede8d0;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  color: #39ff14;
+  margin-top: 1rem;
+}
+
+p {
+  line-height: 1.45;
+  margin: 0.25rem 0 0.75rem 0;
+}
+
+.crop {
+  background-color: #b0cece;
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+
+ 

@@ -1,0 +1,67 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block body_class %}page-home{% endblock %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'core/home.css' %}">
+{% endblock %}
+
+{% block content %}
+  <h1>Sustainable Crop Guidance</h1>
+  <div class="split-layout">
+    <div class="left-side">
+      <img src="{% static 'core/farming.jpg' %}" alt="Farmer" class="farmer-img">
+    </div>
+    <div class="right-side">
+      <div class="slider-container">
+        <div class="slider">
+          {% for crop in crops %}
+            <div class="slide crop">
+              <h2>{{ crop.name }}</h2>
+              <p>Season: {{ crop.season }}</p>
+              <p>Soil Type: {{ crop.soil_type }}</p>
+              <p>Tips: {{ crop.sustainability_tips }}</p>
+            </div>
+          {% endfor %}
+        </div>
+        <button class="slider-nav prev" aria-label="Previous crop">&larr;</button>
+        <button class="slider-nav next" aria-label="Next crop">&rarr;</button>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.querySelector('.slider');
+      const slides = document.querySelectorAll('.slide');
+      const prevBtn = document.querySelector('.prev');
+      const nextBtn = document.querySelector('.next');
+      let currentSlide = 0;
+      
+      function updateSlider() {
+        slider.style.transform = `translateX(-${currentSlide * 100}%)`;
+        
+        // Update button states
+        prevBtn.disabled = currentSlide === 0;
+        nextBtn.disabled = currentSlide === slides.length - 1;
+      }
+      
+      prevBtn.addEventListener('click', () => {
+        if (currentSlide > 0) {
+          currentSlide--;
+          updateSlider();
+        }
+      });
+      
+      nextBtn.addEventListener('click', () => {
+        if (currentSlide < slides.length - 1) {
+          currentSlide++;
+          updateSlider();
+        }
+      });
+      
+      // Initialize slider
+      updateSlider();
+    });
+  </script>
+{% endblock %}

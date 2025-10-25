@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>Agriculture Sustainable Development</title>
+  <link rel="stylesheet" href="{% static 'core/style.css' %}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <nav class="navbar-right">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'dashboard' %}">Dashboard</a>
+  <a href="{% url 'weather' %}">Weather</a>
+  <a href="{% url 'contact' %}">Contact</a>
+  <a href="{% url 'help' %}">Help</a>
+    {% if user.is_authenticated %}
+      <a id="nav-logout" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+      <a id="nav-login" href="{% url 'login' %}">Login</a>
+    {% endif %}
+      </nav>
+    </div>
+  </div>
+  
+  {% block content %}{% endblock %}
+  <script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentSlide);
+  });
+</script>
+</body>
+</html>

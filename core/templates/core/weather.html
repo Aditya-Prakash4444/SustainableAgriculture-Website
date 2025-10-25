@@ -1,0 +1,21 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block body_class %}page-weather{% endblock %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'core/weather.css' %}">
+{% endblock %}
+
+{% block content %}
+  <div class="weather-container">
+    <h1>Weather in Phagwara</h1>
+    <div class="weather-info">
+      <div class="temperature">
+        {{ temp }}<span class="temp-unit">°C</span>
+      </div>
+      <div class="condition">
+        {{ desc }}
+      </div>
+    </div>
+  </div>
+{% endblock %}

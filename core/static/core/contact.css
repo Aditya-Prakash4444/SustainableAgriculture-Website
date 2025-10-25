@@ -1,0 +1,68 @@
+/* Contact page - scoped to help per-page overrides */
+.page-contact {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.contact-slider-container {
+  max-width: 500px;
+  margin: 2rem auto;
+  position: relative;
+}
+
+.contact-slider {
+  position: relative;
+  min-height: 180px;
+}
+
+.contact-slide {
+  display: none;
+  background-color: #b0cece;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.contact-slide.active {
+  display: block;
+}
+
+.contact-slide h2 {
+  color: #2e7d32;
+  margin-bottom: 0.5rem;
+}
+
+.contact-slide p {
+  font-size: 16px;
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.contact-slide a {
+  color: #2e7d32;
+  text-decoration: none;
+}
+
+.contact-slide a:hover {
+  text-decoration: underline;
+}
+
+.contact-slider-controls {
+  margin-top: 1rem;
+}
+
+.contact-slider-controls button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  font-size: 16px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-slider-controls button:hover {
+  background-color: #1b5e20;
+}

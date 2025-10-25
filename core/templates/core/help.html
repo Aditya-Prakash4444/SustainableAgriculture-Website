@@ -1,0 +1,39 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block body_class %}page-help{% endblock %}
+
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'core/help.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Help & FAQs</h1>
+<div class="slider-container">
+  <div class="slide active">
+    <h2>How to register as a farmer?</h2>
+    <p>Go to the registration page, fill in your personal and farm details, and submit the form. You’ll receive a confirmation once approved.</p>
+  </div>
+  <div class="slide">
+    <h2>How to view crop tips?</h2>
+    <p>Login to your dashboard and navigate to the 'Crop Tips' section to see personalized suggestions.</p>
+  </div>
+  <div class="slide">
+    <h2>Types of soil for crops?</h2>
+    <p>Different crops require different soils. For example, wheat prefers loamy soil, while rice grows best in clayey soil.</p>
+  </div>
+  <div class="slide">
+    <h2>Suitable weather for crops?</h2>
+    <p>Weather varies by crop. Use the weather section to check ideal conditions for your region and crop type.</p>
+  </div>
+  <div class="slide">
+    <h2>How to enter the crop tips?</h2>
+    <p>Admins can go to the crop management panel and use the 'Add Tip' form to submit new advice.</p>
+  </div>
+
+  <div class="slider-controls">
+    <button onclick="prevSlide()">❮ Prev</button>
+    <button onclick="nextSlide()">Next ❯</button>
+  </div>
+</div>
+{% endblock %}

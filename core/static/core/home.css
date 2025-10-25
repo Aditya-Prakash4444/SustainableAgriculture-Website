@@ -1,0 +1,4 @@
+/* Page-specific styles for home */
+.page-home .crop { border-left: 4px solid #e49e34; padding-left: 0.75rem; }
+.page-home h1 { font-size: 1.8rem; }
+

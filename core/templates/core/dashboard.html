@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'core/dashboard.css' %}">
+{% endblock %}
+{% block body_class %}page-dashboard{% endblock %}
+{% block content %}
+<h1>Welcome, {{ user.username }} 👨‍🌾</h1>
+  <div class="weather-card">
+    <h2>🌦️ Current Weather</h2>
+    <div class="weather-info">
+      <strong>Temperature:</strong> {{ temp }}°C<br>
+      <strong>Condition:</strong> {{ desc }}
+    </div>
+  </div>
+
+<h2>Your Crops</h2>
+<div class="crop-slider-container">
+  <div class="crop-slider">
+    {% for crop in crops %}
+      <div class="crop-slide">
+        <h3>{{ crop.name }} <span>({{ crop.season }})</span></h3>
+        <p><strong>Soil:</strong> {{ crop.soil_type }}</p>
+        <p><strong>Tips:</strong> {{ crop.sustainability_tips }}</p>
+      </div>
+    {% empty %}
+      <div class="crop-slide">
+        <p>No crops added yet.</p>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="crop-slider-controls">
+    <button onclick="prevCrop()">❮ Prev</button>
+    <button onclick="nextCrop()">Next ❯</button>
+  </div>
+</div>
+
+
+<script>
+  let currentCrop = 0;
+  const cropSlides = document.querySelectorAll('.crop-slide');
+
+  function showCrop(index) {
+    cropSlides.forEach((slide, i) => {
+      slide.style.display = i === index ? 'block' : 'none';
+    });
+  }
+
+  function nextCrop() {
+    currentCrop = (currentCrop + 1) % cropSlides.length;
+    showCrop(currentCrop);
+  }
+
+  function prevCrop() {
+    currentCrop = (currentCrop - 1 + cropSlides.length) % cropSlides.length;
+    showCrop(currentCrop);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    showCrop(currentCrop);
+  });
+</script>
+ 
+{% endblock %}

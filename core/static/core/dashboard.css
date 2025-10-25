@@ -1,0 +1,74 @@
+/* Dashboard-specific styles (global background animation is defined in style.css) */
+.page-dashboard {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+/* Weather Card */
+.weather-card {
+  background-color: #b0cece;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+  max-width: 400px;
+}
+
+.weather-card h2 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.weather-info {
+  font-size: 16px;
+  color: #34495e;
+}
+
+/* Crop Slider */
+.crop-slider-container {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.crop-slider {
+  position: relative;
+  min-height: 180px;
+}
+
+.crop-slide {
+  display: none;
+  background-color: #b0cece;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.crop-slide h3 {
+  margin-bottom: 0.5rem;
+  color: #2e7d32;
+}
+
+.crop-slide p {
+  margin: 0.25rem 0;
+  color: #555;
+}
+
+.crop-slider-controls {
+  margin-top: 1rem;
+}
+
+.crop-slider-controls button {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  font-size: 16px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.crop-slider-controls button:hover {
+  background-color: #1b5e20;
+}

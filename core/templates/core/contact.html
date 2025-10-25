@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block body_class %}page-contact{% endblock %}
+{% block extra_head %}
+  <link rel="stylesheet" href="{% static 'core/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>Contact Us</h1>
+
+<div class="contact-slider-container">
+  <div class="contact-slider">
+    <div class="contact-slide active">
+      <h2>Email</h2>
+      <p>📧 support@agrisustain.com</p>
+    </div>
+    <div class="contact-slide">
+      <h2>Phone</h2>
+      <p>📞 +91-8617843347</p>
+    </div>
+    <div class="contact-slide">
+      <h2>Follow Us</h2>
+      <p>📺 YouTube: <a href="https://youtube.com" target="_blank">Agrisustain Channel</a></p>
+      <p>📘 Facebook: <a href="https://facebook.com" target="_blank">fb.com/agrisustain</a></p>
+      <p>📸 Instagram: <a href="https://instagram.com" target="_blank">@agrisustain</a></p>
+    </div>
+  </div>
+
+  <div class="contact-slider-controls">
+    <button onclick="prevContact()">❮ Prev</button>
+    <button onclick="nextContact()">Next ❯</button>
+  </div>
+</div>
+
+<script>
+  let currentContact = 0;
+  const contactSlides = document.querySelectorAll('.contact-slide');
+
+  function showContact(index) {
+    contactSlides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+
+  function nextContact() {
+    currentContact = (currentContact + 1) % contactSlides.length;
+    showContact(currentContact);
+  }
+
+  function prevContact() {
+    currentContact = (currentContact - 1 + contactSlides.length) % contactSlides.length;
+    showContact(currentContact);
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    showContact(currentContact);
+  });
+</script>
+
+{% endblock %}
